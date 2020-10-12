@@ -22,9 +22,6 @@ public class Loaisanpham implements Serializable {
 
 	private byte trangthai;
 
-	//bi-directional many-to-one association to Sanpham
-	@OneToMany(mappedBy="loaisanpham")
-	private List<Sanpham> sanphams;
 
 	public Loaisanpham() {
 	}
@@ -53,26 +50,5 @@ public class Loaisanpham implements Serializable {
 		this.trangthai = trangthai;
 	}
 
-	public List<Sanpham> getSanphams() {
-		return this.sanphams;
-	}
-
-	public void setSanphams(List<Sanpham> sanphams) {
-		this.sanphams = sanphams;
-	}
-
-	public Sanpham addSanpham(Sanpham sanpham) {
-		getSanphams().add(sanpham);
-		sanpham.setLoaisanpham(this);
-
-		return sanpham;
-	}
-
-	public Sanpham removeSanpham(Sanpham sanpham) {
-		getSanphams().remove(sanpham);
-		sanpham.setLoaisanpham(null);
-
-		return sanpham;
-	}
 
 }

@@ -12,6 +12,12 @@
 	href="../images\template\vendors\ti-icons\css\themify-icons.css">
 <link rel="stylesheet"
 	href="../images\template\vendors\base\vendor.bundle.base.css">
+
+<style type="text/css">
+#linkSP {
+	background-color: black;
+}
+</style>
 <!-- endinject -->
 <!-- plugin css for this page -->
 <!-- End plugin css for this page -->
@@ -33,6 +39,7 @@
 					class="navbar-brand brand-logo-mini" href="index.html"><img
 					src="images/logo-mini.svg" alt="logo" /></a>
 			</div>
+
 			<div
 				class="navbar-menu-wrapper d-flex align-items-center justify-content-end">
 				<button class="navbar-toggler navbar-toggler align-self-center"
@@ -48,11 +55,16 @@
 									class="ti-search"></i>
 								</span>
 							</div>
+
 							<input type="text" class="form-control" id="navbar-search-input"
 								placeholder="Search now" aria-label="search"
-								aria-describedby="search">
+								aria-describedby="search" oninput="searchNameSP()">
+
+
 						</div>
+						<div id="linkSP"></div>
 					</li>
+
 				</ul>
 				<ul class="navbar-nav navbar-nav-right">
 					<li class="nav-item dropdown mr-1"><a
@@ -73,27 +85,6 @@
 									<p class="font-weight-light small-text text-muted mb-0">
 										The meeting is cancelled</p>
 								</div>
-							</a> <a class="dropdown-item">
-								<div class="item-thumbnail">
-									<img src="images/faces/face2.jpg" alt="image"
-										class="profile-pic">
-								</div>
-								<div class="item-content flex-grow">
-									<h6 class="ellipsis font-weight-normal">Tim Cook</h6>
-									<p class="font-weight-light small-text text-muted mb-0">
-										New product launch</p>
-								</div>
-							</a> <a class="dropdown-item">
-								<div class="item-thumbnail">
-									<img src="images/faces/face3.jpg" alt="image"
-										class="profile-pic">
-								</div>
-								<div class="item-content flex-grow">
-									<h6 class="ellipsis font-weight-normal">Johnson</h6>
-									<p class="font-weight-light small-text text-muted mb-0">
-										Upcoming board meeting</p>
-								</div>
-							</a>
 						</div></li>
 					<li class="nav-item dropdown"><a
 						class="nav-link count-indicator dropdown-toggle"
@@ -114,29 +105,6 @@
 									<p class="font-weight-light small-text mb-0 text-muted">
 										Just now</p>
 								</div>
-							</a> <a class="dropdown-item">
-								<div class="item-thumbnail">
-									<div class="item-icon bg-warning">
-										<i class="ti-settings mx-0"></i>
-									</div>
-								</div>
-								<div class="item-content">
-									<h6 class="font-weight-normal">Settings</h6>
-									<p class="font-weight-light small-text mb-0 text-muted">
-										Private message</p>
-								</div>
-							</a> <a class="dropdown-item">
-								<div class="item-thumbnail">
-									<div class="item-icon bg-info">
-										<i class="ti-user mx-0"></i>
-									</div>
-								</div>
-								<div class="item-content">
-									<h6 class="font-weight-normal">New user registration</h6>
-									<p class="font-weight-light small-text mb-0 text-muted">2
-										days ago</p>
-								</div>
-							</a>
 						</div></li>
 					<li class="nav-item nav-profile dropdown"><a
 						class="nav-link dropdown-toggle" href="#" data-toggle="dropdown"
@@ -204,46 +172,47 @@
 						<div class="col-md-3 grid-margin stretch-card">
 							<div class="card">
 								<div class="card-body">
-									<p class="card-title text-md-center text-xl-left">Total
-										Product</p>
+									<br> <a href="javascript:ShowProduct();">Total Product</a>
+									<br><br>
 									<div
 										class="d-flex flex-wrap justify-content-between justify-content-md-center justify-content-xl-between align-items-center">
 
-										<h3 class="mb-0 mb-md-2 mb-xl-0 order-md-1 order-xl-0">${tong1}</h3>
+										<h3 class="mb-0 mb-md-2 mb-xl-0 order-md-1 order-xl-0">${sumSP}</h3>
 
 										<i class="ti-calendar icon-md text-muted mb-0 mb-md-3 mb-xl-0"></i>
 									</div>
-									<br>
-									<button class="btn btn-outline-success" id="btnProducts">Show/Hide
-										Product</button>
+									<p class="mb-0 mt-2 text-success">
+										Product<span class="text-black ml-1">
+									</p>
+
 								</div>
 							</div>
 						</div>
 						<div class="col-md-3 grid-margin stretch-card">
 							<div class="card">
 								<div class="card-body">
-									<p class="card-title text-md-center text-xl-left">Total
-										Employees</p>
-
+									<br> <a href="javascript:ShowEmployees();">Total
+										Employees</a> <br><br>
 									<div
 										class="d-flex flex-wrap justify-content-between justify-content-md-center justify-content-xl-between align-items-center">
-										<h3 class="mb-0 mb-md-2 mb-xl-0 order-md-1 order-xl-0">${tong5}</h3>
+										<h3 class="mb-0 mb-md-2 mb-xl-0 order-md-1 order-xl-0">${sumNV}</h3>
 										<i class="ti-user icon-md text-muted mb-0 mb-md-3 mb-xl-0"></i>
 									</div>
-									<br>
-									<button class="btn btn-outline-success" id="btnEmployees">Show/Hide
-										Employees</button>
+									<p class="mb-0 mt-2 text-success">
+										Employees<span class="text-black ml-1">
+									</p>
+
 								</div>
 							</div>
 						</div>
 						<div class="col-md-3 grid-margin stretch-card">
 							<div class="card">
 								<div class="card-body">
-									<p class="card-title text-md-center text-xl-left">Total
-										Invoice</p>
+									<br> <a href="javascript:ShowHoaDon();">Total Invoice</a>
+									<br><br>
 									<div
 										class="d-flex flex-wrap justify-content-between justify-content-md-center justify-content-xl-between align-items-center">
-										<h3 class="mb-0 mb-md-2 mb-xl-0 order-md-1 order-xl-0">${tong2}</h3>
+										<h3 class="mb-0 mb-md-2 mb-xl-0 order-md-1 order-xl-0">${sumHD}</h3>
 										<i class="ti-agenda icon-md text-muted mb-0 mb-md-3 mb-xl-0"></i>
 									</div>
 									<p class="mb-0 mt-2 text-success">
@@ -255,11 +224,11 @@
 						<div class="col-md-3 grid-margin stretch-card">
 							<div class="card">
 								<div class="card-body">
-									<p class="card-title text-md-center text-xl-left">Total
-										Revenue</p>
+									<br> <a href="javascript:ShowHoaDonChiTiet();">Total
+										Revenue</a> <br><br>
 									<div
 										class="d-flex flex-wrap justify-content-between justify-content-md-center justify-content-xl-between align-items-center">
-										<h3 class="mb-0 mb-md-2 mb-xl-0 order-md-1 order-xl-0">${tong3}</h3>
+										<h3 class="mb-0 mb-md-2 mb-xl-0 order-md-1 order-xl-0">${sumPrice}</h3>
 										<i
 											class="ti-layers-alt icon-md text-muted mb-0 mb-md-3 mb-xl-0"></i>
 									</div>
@@ -281,9 +250,10 @@
 									<div class="col-md-5 grid-margin stretch-card">
 										<select class="custom-select mr-sm-2"
 											id="inlineFormCustomSelect">
-											<option selected>All</option>
-											<option onclick="#">Quan</a></option>
-											<option value="2">Ao</option>
+											<option selected>Loại</option>
+											<option value="http://localhost:8080/sanpham/admin">Tất cả</option>
+											<option value="http://localhost:8080/sanpham/admin?loaiSP=giay">Giày</a></option>
+											<option value="http://localhost:8080/sanpham/admin?loaiSP=ao">Áo</option>
 
 										</select>
 									</div>
@@ -368,7 +338,7 @@
 														<td>${nv.manv}</td>
 														<td>${nv.tennv}</td>
 														<td>${nv.matkhau}</td>
-														<td>${nv.quequan}</td>													
+														<td>${nv.quequan}</td>
 														<td><c:choose>
 																<c:when test="${nv.vaitro=='1'}">
 																	<label class="badge badge-success">Admin</label>
@@ -419,13 +389,14 @@
 														<td>${hd.tennguoimua}</td>
 														<td>${hd.email}</td>
 														<td>${hd.sodienthoai}</td>
-														<td>${hd.diachi}</td>														
+														<td>${hd.diachi}</td>
 														<td><c:choose>
 																<c:when test="${hd.trangthai=='1'}">
 																	<label class="badge badge-success">Thành công</label>
 																</c:when>
 																<c:otherwise>
-																	<label class="badge badge-warning">Đang thực hiện</label>
+																	<label class="badge badge-warning">Đang thực
+																		hiện</label>
 																	<br />
 																</c:otherwise>
 															</c:choose></td>
@@ -470,17 +441,19 @@
 														<td>${hdct.tensize}</td>
 														<td>${hdct.soluong}</td>
 														<td>${hdct.thanhtien}</td>
-														
+
 														<td><c:choose>
 																<c:when test="${hdct.trangthai=='1'}">
 																	<label class="badge badge-success">Thành Công</label>
 																</c:when>
 																<c:otherwise>
-																	<label class="badge badge-warning">Đang thực hiện</label>
+																	<label class="badge badge-warning">Đang thực
+																		hiện</label>
 																	<br />
 																</c:otherwise>
 															</c:choose></td>
-														<td><a href="sanpham/admin/editHDCT?id=${hdct.mahoadonchitiet}">Edit</a></td>
+														<td><a
+															href="sanpham/admin/editHDCT?id=${hdct.mahoadonchitiet}">Edit</a></td>
 													</tr>
 												</c:forEach>
 											</tbody>
@@ -522,8 +495,8 @@
 																<td class="w-100 px-0">
 																	<div class="progress progress-md mx-4">
 																		<div class="progress-bar bg-primary"
-																			role="progressbar" style="width: 70%"
-																			aria-valuenow="70" aria-valuemin="0"
+																			role="progressbar" style="width: 40%"
+																			
 																			aria-valuemax="100"></div>
 																	</div>
 																</td>
@@ -630,18 +603,76 @@
 	<!-- endinject -->
 	<!-- Custom js for this page-->
 	<script src="../images\template\js\dashboard.js"></script>
+	<script
+		src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 	<!-- End custom js for this page-->
 	<script>
-		function isShowEmployees() {
-			$("#Employees").toggle();
+		
+		function searchNameSP() {
+			let name = document.getElementById("navbar-search-input").value;
+			console.log(name);
+						
+			 $.ajax('http://localhost:8080/admin/searchSP/' + name)
+			.done(function(result){		
+				document.getElementById("linkSP").innerHTML ="";
+				console.log("b")
+				console.log(result[0]);
+				
+					for(let i = 0; i <result.length;i++ ){
+						document.getElementById("linkSP").innerHTML += '<a href="#about">'+ result[i].tensanpham +'</a> <br>'
+					}	
+				
+						
+			}).fail(function(result){
+				console.log("Sai")
+				
+				document.getElementById("linkSP").innerHTML ="";
+			});
+			
+			
 		};
-
-		function isShowProduct() {
-			$("#Products").toggle();
+		
+		function ShowEmployees() {
+			$("#Employees").show();
+			$("#Products").hide();
+			$("#HoaDon").hide();
+			$("#HoaDonChiTiet").hide();
 		};
+		function ShowProduct() {
+			$("#Employees").hide();
+			$("#Products").show();
+			$("#HoaDon").hide();
+			$("#HoaDonChiTiet").hide();
+		};
+		function ShowHoaDon() {
+			$("#Employees").hide();
+			$("#Products").hide();
+			$("#HoaDon").show();
+			$("#HoaDonChiTiet").hide();
+		};
+		function ShowHoaDonChiTiet() {
+			$("#Employees").hide();
+			$("#Products").hide();
+			$("#HoaDon").hide();
+			$("#HoaDonChiTiet").show();
+		};
+		ShowProduct();
+		
+		 $(function(){
+		      // bind change event to select
+		      $('#inlineFormCustomSelect').on('change', function () {
+		          var url = $(this).val(); // get selected value
+		          if (url) { // require a URL
+		              window.location = url; // redirect
+		          }
+		          return false;
+		      });
+		    });
 
-		$('#btnEmployees').click(isShowEmployees);
-		$('#btnProducts').click(isShowProduct);
+		/* $('#btnEmployees').click(isShowEmployees);
+		$('#btnProducts').click(isShowProduct); */
+		
+		
 	</script>
 
 </body>

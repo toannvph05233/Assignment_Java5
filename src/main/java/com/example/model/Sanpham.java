@@ -51,11 +51,7 @@ public class Sanpham {
 	@JoinColumn(name="maloai")
 	private Loaisanpham loaisanpham;
 
-	//bi-directional many-to-one association to Sanphamsize
-	@OneToMany(mappedBy="sanpham")
-	@LazyCollection(LazyCollectionOption.FALSE)
-	private List<Sanphamsize> sanphamsizes;
-
+	
 	
 	public Sanpham() {
 	}
@@ -64,7 +60,7 @@ public class Sanpham {
 
 	public Sanpham(String masanpham, double giaban, double gianhap, String hinhanh, String mau, String motasanpham,
 			java.sql.Date ngaynhapkho, String tensanpham, byte trangthai, List<Hoadonchitiet> hoadonchitiets,
-			Giamgia giamgia, Loaisanpham loaisanpham, List<Sanphamsize> sanphamsizes) {
+			Giamgia giamgia, Loaisanpham loaisanpham) {
 		super();
 		this.masanpham = masanpham;
 		this.giaban = giaban;
@@ -78,7 +74,7 @@ public class Sanpham {
 		this.hoadonchitiets = hoadonchitiets;
 		this.giamgia = giamgia;
 		this.loaisanpham = loaisanpham;
-		this.sanphamsizes = sanphamsizes;
+		
 	}
 
 
@@ -226,16 +222,6 @@ public class Sanpham {
 	}
 
 
-
-	public List<Sanphamsize> getSanphamsizes() {
-		return sanphamsizes;
-	}
-
-
-
-	public void setSanphamsizes(List<Sanphamsize> sanphamsizes) {
-		this.sanphamsizes = sanphamsizes;
-	}
 
 
 

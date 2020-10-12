@@ -22,10 +22,7 @@ public class Giamgia implements Serializable {
 
 	private byte trangthai;
 
-	//bi-directional many-to-one association to Sanpham
-	@OneToMany(mappedBy="giamgia")
-	private List<Sanpham> sanphams;
-
+	
 	public Giamgia() {
 	}
 
@@ -53,26 +50,5 @@ public class Giamgia implements Serializable {
 		this.trangthai = trangthai;
 	}
 
-	public List<Sanpham> getSanphams() {
-		return this.sanphams;
-	}
-
-	public void setSanphams(List<Sanpham> sanphams) {
-		this.sanphams = sanphams;
-	}
-
-	public Sanpham addSanpham(Sanpham sanpham) {
-		getSanphams().add(sanpham);
-		sanpham.setGiamgia(this);
-
-		return sanpham;
-	}
-
-	public Sanpham removeSanpham(Sanpham sanpham) {
-		getSanphams().remove(sanpham);
-		sanpham.setGiamgia(null);
-
-		return sanpham;
-	}
 
 }

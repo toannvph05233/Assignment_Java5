@@ -9,11 +9,13 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 import com.example.model.Sanpham;
+import com.example.repository.DaoRepo;
 import com.example.repository.IProductRepo;
 
 @Service
 public class ProductService {
 	@Autowired IProductRepo iProductRepo;
+	@Autowired DaoRepo daoRepo;
 	
 	public List<Sanpham> getAll(){
 		return (List<Sanpham>) iProductRepo.findAll();
@@ -31,6 +33,10 @@ public class ProductService {
 	
 	public Optional<Sanpham> findSPById(String id){
 		return  iProductRepo.findById(id);
+	}
+	
+	public List<Sanpham> findSPByName(String name){
+		return  daoRepo.findByTensanpham(name);
 	}
 	
 	public void deleteSP(String id){

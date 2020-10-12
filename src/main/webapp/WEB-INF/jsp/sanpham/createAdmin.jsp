@@ -22,7 +22,7 @@
 		<h1>Create Product New</h1>
 		<br>
 
-		<form method="post" action="/sanpham/admin/create">
+		<form method="post" action="/sanpham/admin/create" enctype="multipart/form-data">
 			<div class="form-row">
 				<div class="form-group col-md-6">
 					<label>ID-SP :</label> <input type="text" class="form-control"
@@ -64,8 +64,8 @@
 						name="soluong" placeholder="Cout">
 				</div>
 				<div class="form-group col-md-4">
-					<label>Link IMG :</label> <input type="text" class="form-control"
-						name="hinhanh" placeholder="link IMG">
+					<label>Link IMG :</label>									
+							 <input name="img" type="file">					
 				</div>
 
 			</div>
