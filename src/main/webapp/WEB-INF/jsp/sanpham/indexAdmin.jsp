@@ -13,11 +13,11 @@
 <link rel="stylesheet"
 	href="../images\template\vendors\base\vendor.bundle.base.css">
 
-<style type="text/css">
+<!-- <style type="text/css">
 #linkSP {
 	background-color: black;
 }
-</style>
+</style> -->
 <!-- endinject -->
 <!-- plugin css for this page -->
 <!-- End plugin css for this page -->

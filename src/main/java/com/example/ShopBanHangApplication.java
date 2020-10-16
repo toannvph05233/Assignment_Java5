@@ -16,7 +16,7 @@ public class ShopBanHangApplication implements WebMvcConfigurer{
 	@Override
 	public void addResourceHandlers(ResourceHandlerRegistry registry) {
 		// TODO Auto-generated method stub
-		//WebMvcConfigurer.super.addResourceHandlers(registry);
+		
 		registry.addResourceHandler("/images/**").addResourceLocations("/WEB-INF/images/")
 		.setCacheControl(CacheControl.maxAge(2, TimeUnit.HOURS).cachePublic());
 	}
