@@ -1,7 +1,9 @@
 package com.example.model;
 
+import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Collections;
+import java.util.List;
 
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
@@ -9,6 +11,7 @@ import org.springframework.security.core.userdetails.UserDetails;
 
 
 public class CustomUserDetails implements UserDetails{
+	String ROLE_PREFIX = "ROLE_";
 	Nhanvien nhanvien;
 
 	
@@ -31,8 +34,16 @@ public class CustomUserDetails implements UserDetails{
 
 	@Override
 	public Collection<? extends GrantedAuthority> getAuthorities() {
-		// TODO Auto-generated method stub
-		return Collections.singleton(new SimpleGrantedAuthority("1"));
+		 List<GrantedAuthority> list = new ArrayList<GrantedAuthority>();
+		 list.add(new SimpleGrantedAuthority(nhanvien.getVaitro()));
+		 
+		 System.out.println("-----------------list--------------------");
+			for(GrantedAuthority x: list) {
+				System.out.println(x.toString());
+			}
+			System.out.println("-------------------------------------");
+			
+		return list;
 	}
 
 	@Override

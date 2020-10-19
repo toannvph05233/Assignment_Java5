@@ -16,8 +16,11 @@
 	src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
 </head>
 <body>
-
+<div class="jumbotron text-center">
+  <h1>Xin chào đến với trang web của tôi!</h1>
+</div>
 	<div class="container">
+	 <a href="/sanpham/admin">Quay lại</a>
 	<br>
 	<h1>Create Nhân Viên </h1>
 	<br>
@@ -51,8 +54,8 @@
 				<br><br>
 					<label>Vai trò</label> <select name="vaitro">
 
-						<option selected value="0">Nhân Viên</option>
-						<option value="1">Admin</option>
+						<option selected value="ROLE_USER">Nhân Viên</option>
+						<option value="ROLE_ADMIN">Admin</option>
 						
 					</select>
 				</div>
@@ -77,5 +80,8 @@
 			<button type="submit" class="btn btn-primary">Submit</button>
 		</form>
 	</div>
+	<div class="jumbotron text-center">
+  <h1>Xin chào đến với trang web của tôi!</h1>
+</div>
 </body>
 </html>

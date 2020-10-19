@@ -37,10 +37,6 @@ public class Sanpham {
 
 	private byte trangthai;
 
-	//bi-directional many-to-one association to Hoadonchitiet
-	@OneToMany(mappedBy="sanpham")
-	private List<Hoadonchitiet> hoadonchitiets;
-
 	//bi-directional many-to-one association to Giamgia
 	@ManyToOne
 	@JoinColumn(name="magiamgia")
@@ -59,7 +55,7 @@ public class Sanpham {
 	
 
 	public Sanpham(String masanpham, double giaban, double gianhap, String hinhanh, String mau, String motasanpham,
-			java.sql.Date ngaynhapkho, String tensanpham, byte trangthai, List<Hoadonchitiet> hoadonchitiets,
+			java.sql.Date ngaynhapkho, String tensanpham, byte trangthai,
 			Giamgia giamgia, Loaisanpham loaisanpham) {
 		super();
 		this.masanpham = masanpham;
@@ -71,7 +67,7 @@ public class Sanpham {
 		this.ngaynhapkho = ngaynhapkho;
 		this.tensanpham = tensanpham;
 		this.trangthai = trangthai;
-		this.hoadonchitiets = hoadonchitiets;
+		
 		this.giamgia = giamgia;
 		this.loaisanpham = loaisanpham;
 		
@@ -184,19 +180,6 @@ public class Sanpham {
 	public void setTrangthai(byte trangthai) {
 		this.trangthai = trangthai;
 	}
-
-
-
-	public List<Hoadonchitiet> getHoadonchitiets() {
-		return hoadonchitiets;
-	}
-
-
-
-	public void setHoadonchitiets(List<Hoadonchitiet> hoadonchitiets) {
-		this.hoadonchitiets = hoadonchitiets;
-	}
-
 
 
 	public Giamgia getGiamgia() {

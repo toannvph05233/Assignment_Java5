@@ -16,8 +16,11 @@
 	src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
 </head>
 <body>
-
+<div class="jumbotron text-center">
+  <h1>Xin chào đến với trang web của tôi!</h1>
+</div>
 	<div class="container">
+	 <a href="/sanpham/admin">Quay lại</a>
 	<br>
 	<h1>Edit Product </h1>
 	<br>
@@ -111,5 +114,8 @@
 			<button type="submit" class="btn btn-primary">Submit</button>
 		</form>
 	</div>
+	<div class="jumbotron text-center">
+  <h1>Xin chào đến với trang web của tôi!</h1>
+</div>
 </body>
 </html>

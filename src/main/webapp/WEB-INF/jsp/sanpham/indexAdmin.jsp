@@ -1,10 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
 <%@ taglib prefix="c" uri="http://java.sun.com/jstl/core_rt"%>
-
-<head>
 <%@ page contentType="text/html;charset=UTF-8" language="java"%>
-
+<head>
 
 <title>Admin</title>
 <!-- plugins:css -->
@@ -13,31 +11,24 @@
 <link rel="stylesheet"
 	href="../images\template\vendors\base\vendor.bundle.base.css">
 
-<!-- <style type="text/css">
-#linkSP {
-	background-color: black;
-}
-</style> -->
-<!-- endinject -->
-<!-- plugin css for this page -->
-<!-- End plugin css for this page -->
-<!-- inject:css -->
 <link rel="stylesheet" href="../images\template\css\style.css">
 <!-- endinject -->
 <link rel="shortcut icon" href="../images\template\images\favicon.png" />
+
 <base href="${pageContext.servletContext.contextPath}/">
+
+
 </head>
 <body>
 
-	<div class="container-scroller">
-		<!-- partial:partials/_navbar.html -->
+<div class="container-scroller">
 		<nav class="navbar col-lg-12 col-12 p-0 fixed-top d-flex flex-row">
 			<div
 				class="text-center navbar-brand-wrapper d-flex align-items-center justify-content-center">
 				<a class="navbar-brand brand-logo mr-5" href="index.html"><img
-					src="images/logo.svg" class="mr-2" alt="logo" /></a> <a
+					src="../images/logo.svg" class="mr-2" alt="logo" /></a> <a
 					class="navbar-brand brand-logo-mini" href="index.html"><img
-					src="images/logo-mini.svg" alt="logo" /></a>
+					src="../images/logo-mini.svg" alt="logo" /></a>
 			</div>
 
 			<div
@@ -279,7 +270,7 @@
 														<td>${sp.tensanpham}</td>
 														<td class="text-danger">${sp.giaban}</td>
 														<td><label class="badge badge-danger">${sp.ngaynhapkho}</label></td>
-														<td><img src="images/${sp.hinhanh }" height="50"
+														<td><img src="images/${sp.hinhanh}" height="50"
 															width="50" /></td>
 
 														<td><c:choose>
@@ -340,7 +331,7 @@
 														<td>${nv.matkhau}</td>
 														<td>${nv.quequan}</td>
 														<td><c:choose>
-																<c:when test="${nv.vaitro=='1'}">
+																<c:when test="${nv.vaitro=='ROLE_ADMIN'}">
 																	<label class="badge badge-success">Admin</label>
 																</c:when>
 																<c:otherwise>
@@ -619,13 +610,12 @@
 				console.log(result[0]);
 				
 					for(let i = 0; i <result.length;i++ ){
-						document.getElementById("linkSP").innerHTML += '<a href="#about">'+ result[i].tensanpham +'</a> <br>'
-					}	
-				
-						
+						document.getElementById("linkSP").innerHTML += '<a href="sanpham/showProduct/'+ result[i].masanpham +'">'+ result[i].tensanpham +'</a> <br>'						
+					}		
+			
 			}).fail(function(result){
 				console.log("Sai")
-				
+				console.log(result)
 				document.getElementById("linkSP").innerHTML ="";
 			});
 			

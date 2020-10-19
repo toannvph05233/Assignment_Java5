@@ -16,8 +16,11 @@
 	src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
 </head>
 <body>
-
+<div class="jumbotron text-center">
+  <h1>Xin chào đến với trang web của tôi!</h1>
+</div>
 	<div class="container">
+	 <a href="/sanpham/admin">Quay lại</a>
 	<br>
 	<h1>Edit Nhân Viên </h1>
 	<br>
@@ -48,9 +51,14 @@
 				</div>
 
 				<div class="form-group col-md-4">
-					<label>Role NV :</label> <input type="number"
-						class="form-control" name="vaitro" value=${requestScope["nhanvien"].isVaitro()}>
+					<label>Role NV :</label> <select name="vaitro">
+
+						<option selected value="ROLE_USER">Nhân Viên</option>
+						<option value="ROLE_ADMIN">Admin</option>
+						
+					</select>
 				</div>
+				
 
 			</div>
 
@@ -72,5 +80,8 @@
 			<button type="submit" class="btn btn-primary">Submit</button>
 		</form>
 	</div>
+	<div class="jumbotron text-center">
+  <h1>Xin chào đến với trang web của tôi!</h1>
+</div>
 </body>
 </html>

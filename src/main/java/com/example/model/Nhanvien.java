@@ -21,7 +21,7 @@ public class Nhanvien implements Serializable {
 	
 	private String matkhau;
 	
-	private boolean vaitro;
+	private String vaitro;
 	
 	private String quequan;
 	
@@ -54,11 +54,11 @@ public class Nhanvien implements Serializable {
 		this.matkhau = matkhau;
 	}
 
-	public boolean isVaitro() {
+	public String getVaitro() {
 		return vaitro;
 	}
 
-	public void setVaitro(boolean vaitro) {
+	public void setVaitro(String vaitro) {
 		this.vaitro = vaitro;
 	}
 

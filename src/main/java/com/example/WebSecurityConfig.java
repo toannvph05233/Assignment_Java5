@@ -7,7 +7,9 @@ import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+import org.springframework.security.crypto.password.NoOpPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
+import org.springframework.security.web.util.matcher.AntPathRequestMatcher;
 
 import com.example.service.NhanVienService;
 
@@ -18,7 +20,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 
     @Bean
     public PasswordEncoder passwordEncoder() {
-        // Password encoder, để Spring Security sử dụng mã hóa mật khẩu người dùng
+        // Password encoder, để Spring Security sử dụng mã hóa mật khẩu ng dùng
         return new BCryptPasswordEncoder();
     }
 
@@ -26,22 +28,29 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
     protected void configure(AuthenticationManagerBuilder auth)
             throws Exception {
         auth.userDetailsService(nhanVienService) // Cung cáp userservice cho spring security
-            .passwordEncoder(passwordEncoder()); // cung cấp password encoder
+            .passwordEncoder(NoOpPasswordEncoder.getInstance()); 
     }
 
     @Override
     protected void configure(HttpSecurity http) throws Exception {
         http
                 .authorizeRequests()
-                .antMatchers("/").permitAll() // Cho phép tất cả mọi người truy cập vào 2 địa chỉ này
+                
+                .antMatchers("/").permitAll() // Cho phép tất cả mọi ng truy cập vào 2 địa chỉ này         
+                .antMatchers("/sanpham/admin").access("hasRole('ROLE_ADMIN')")
                 .anyRequest().authenticated() // Tất cả các request khác đều cần phải xác thực mới được truy cập
                 .and()
-                .formLogin() // Cho phép người dùng xác thực bằng form login
-                .defaultSuccessUrl("/sanpham/admin")
-                .permitAll() // Tất cả đều được truy cập vào địa chỉ này
+                .formLogin() // Cho phép ng dùng xác thuc bằng form login
+                .successHandler(successHandler())
                 .and()
-                .logout() // Cho phép logout
-                .permitAll();
+                .logout().logoutRequestMatcher(new AntPathRequestMatcher("/logout")) // Cho phép logout
+                .permitAll()
+                .and()
+                .csrf() 
+                .disable() ;
     }
-
+    @Bean
+    public CustomSuccessHandler successHandler() {
+        return new CustomSuccessHandler();
+    }
 }
